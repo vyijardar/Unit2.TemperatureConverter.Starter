@@ -5,9 +5,11 @@
  * @param {number} f temperature in °F
  * @returns {number} temperature in °C
  */
-function convertToCelsius(f) {
-  // TODO
+
+function convertToCelsius(Fahrenheit) {
+  return (Fahrenheit - 32) * 5 / 9;
 }
+
 
 /**
  * | Temperature | Description |
@@ -22,16 +24,37 @@ function convertToCelsius(f) {
  * @returns {string} the description from the table above corresponding to
  * the given Fahrenheit temperature `f`
  */
-function describeTemperature(f) {
-  // TODO
+//const message = createMessage(90, convertToCelsius(90));
+
+function createMessage(Fahrenheit, Celsius) {
+  let message='';
+  const Temperature = (Fahrenheit - 32) * 5 / 9;
+  if (Temperature < 32) {
+    message = 'Very cold';
+  }
+  else if (Temperature < 64) {
+    message = 'cold';
+  }
+  else if (Temperature < 86) {
+    message = 'warm';
+  }
+  else if (Temperature < 100) {
+    message = 'hot';
+  }
+  else (Temperature > 100)
+  {
+    message = 'Very hot';
+  }
+  
+  return `${Fahrenheit} Fahrenheit is ${ Celsius} Celsius. ${message}`;
 }
 
 /**
  * @param {number} limit
  * @returns {number} a random integer in the range [0, `limit`)
  */
-function getRandomInt(limit) {
-  // TODO
+function rand(limit) {
+  return Math.round(Math.random()*limit);
 }
 
 // -------------------- DO NOT CHANGE THE CODE BELOW ---------------------- //
@@ -40,25 +63,44 @@ function getRandomInt(limit) {
  * then alerts the user with a descriptive message.
  * @param {number} f temperature in °F
  */
-function parseFahrenheit(f) {
-  const c = convertToCelsius(f);
-  const description = describeTemperature(f);
-  const message = `${f}°F is ${c}°C. That is ${description}.`;
-  alert(message);
-}
+let inputTemp = prompt("enter a number, we will convert that number from fahrenheit to Celsius");
+let Celsius = convertToCelsius(inputTemp);
+let output = createMessage(inputTemp, Celsius);
+console.log(output);
 
-const fahrenheitPrompt =
-  "Please enter a number. We will convert that temperature from Fahrenheit to Celsius.";
-let f = prompt(fahrenheitPrompt);
-parseFahrenheit(+f);
+inputTemp = prompt('Lets try again! enter a number, we will convert that number from fahrenheit to Celsius');
+Celsius = convertToCelsius(inputTemp);
+output = createMessage(inputTemp, Celsius);
+console.log(output);
 
-alert("Let's try that again.");
-f = prompt(fahrenheitPrompt);
-parseFahrenheit(+f);
 
-alert("Let's try some random temperatures.");
-f = getRandomInt(110);
-parseFahrenheit(f);
+let randomTemp = rand(100); 
+Celsius = convertToCelsius(randomTemp);
+output = createMessage(randomTemp, Celsius);
+console.log(output);
 
-f = getRandomInt(110);
-parseFahrenheit(f);
+randomTemp = rand(100); 
+Celsius = convertToCelsius(randomTemp);
+output = createMessage(randomTemp, Celsius);
+console.log(output);
+
+//  function parseFahrenheit(f) {
+// const c = convertToCelsius(f);
+// const description = describeTemperature(f);
+//    const message = `${f}°F is ${c}°C. That is ${description}.`;
+//    alert(message);
+//  }
+
+//  const fahrenheitPrompt =
+//    "Please enter a number. We will convert that temperature from Fahrenheit to Celsius.";
+//  let f = prompt(fahrenheitPrompt);
+//  parseFahrenheit(+f);
+
+//  alert("Let's try that again.");
+//  f = prompt(fahrenheitPrompt);
+//  parseFahrenheit(+f);
+//  alert("Let's try some random temperatures.");
+//  f = getRandomInt(110);
+//  parseFahrenheit(f);
+//  f = getRandomInt(110);
+//  parseFahrenheit(f);
