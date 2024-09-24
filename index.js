@@ -24,7 +24,7 @@ function convertToCelsius(Fahrenheit) {
  * @returns {string} the description from the table above corresponding to
  * the given Fahrenheit temperature `f`
  */
-//const message = createMessage(90, convertToCelsius(90));
+
 
 function createMessage(Fahrenheit, Celsius) {
   let message='';
@@ -83,24 +83,3 @@ randomTemp = rand(100);
 Celsius = convertToCelsius(randomTemp);
 output = createMessage(randomTemp, Celsius);
 console.log(output);
-
-//  function parseFahrenheit(f) {
-// const c = convertToCelsius(f);
-// const description = describeTemperature(f);
-//    const message = `${f}°F is ${c}°C. That is ${description}.`;
-//    alert(message);
-//  }
-
-//  const fahrenheitPrompt =
-//    "Please enter a number. We will convert that temperature from Fahrenheit to Celsius.";
-//  let f = prompt(fahrenheitPrompt);
-//  parseFahrenheit(+f);
-
-//  alert("Let's try that again.");
-//  f = prompt(fahrenheitPrompt);
-//  parseFahrenheit(+f);
-//  alert("Let's try some random temperatures.");
-//  f = getRandomInt(110);
-//  parseFahrenheit(f);
-//  f = getRandomInt(110);
-//  parseFahrenheit(f);
